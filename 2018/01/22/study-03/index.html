@@ -123,7 +123,7 @@
 
 
 
-  <title>Hello World | Baole blog</title>
+  <title>css技巧篇 | Baole blog</title>
   
 
 
@@ -268,7 +268,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/19/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/study-03/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bao Lei">
@@ -285,7 +285,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">css技巧篇</h1>
         
 
         <div class="post-meta">
@@ -297,7 +297,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T22:58:49+08:00">2017-12-19</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T21:49:33+08:00">2018-01-22</time>
             
 
             
@@ -313,7 +313,7 @@
 
           
           
-             <span id="/2017/12/19/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
+             <span id="/2018/01/22/study-03/" class="leancloud_visitors" data-flag-title="css技巧篇">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -344,15 +344,31 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="css中的一些奇淫技巧"><a href="#css中的一些奇淫技巧" class="headerlink" title="css中的一些奇淫技巧"></a>css中的一些奇淫技巧</h1><p><a href="http://www.css88.com/book/css/" target="_blank" rel="noopener">参考文档</a></p>
+<p>在使用css的时候，前人总结了一些很是巧妙的方式，暂先不去考虑这样写的性能和利弊如何，开开心心放心大胆的去探索如何？<br><a id="more"></a></p>
+<h3 id="正方形div"><a href="#正方形div" class="headerlink" title="正方形div"></a>正方形div</h3><p>假设有这样一种场景，单纯一个div宽度是百分比控制的，此时若想让此div宽高一致该如何操作？</p>
+<h4 id="1、vw单位使用"><a href="#1、vw单位使用" class="headerlink" title="1、vw单位使用"></a>1、vw单位使用</h4><p>说明：浏览器视口被分成100vw单位，1vw即浏览器视口宽度1%;<br>所以要做一个正方形，只要宽高都使其为相对浏览器视口一样的宽度百分比即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.square &#123;</span><br><span class="line">    width: 33vw;</span><br><span class="line">    height: 33vw;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="2、padding-bottom巧妙使用"><a href="#2、padding-bottom巧妙使用" class="headerlink" title="2、padding-bottom巧妙使用"></a>2、padding-bottom巧妙使用</h4><p>关于padding使用不多说，当其属性值为百分比时，有这样的描述：</p>
+<blockquote>
+<p>定义基于父元素宽度的百分比下内边距。此值不会如预期地那样工作与所有浏览器中。</p>
+</blockquote>
+<p>网上有<a href="https://www.cnblogs.com/wwlhome/p/5897320.html" target="_blank" rel="noopener">两种方式</a>，个人推荐使用padding-bottom+:after+absolute的方式，因为这种方式不会影响正方行中的子元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;square&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;content&quot;&gt;</span><br><span class="line">        Hello!</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">.square &#123;</span><br><span class="line">    width: 50%;</span><br><span class="line">    background: #ccc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.square:after &#123;</span><br><span class="line">    content: &quot;&quot;;</span><br><span class="line">    display: block;</span><br><span class="line">    padding-bottom: 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.content &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="宽度占满剩余空间"><a href="#宽度占满剩余空间" class="headerlink" title="宽度占满剩余空间"></a>宽度占满剩余空间</h3><p><strong>利用BFC</strong>，关于BFC（Block Formatting Context）想更多了解请读<a href="https://www.w3cplus.com/css/understanding-block-formatting-contexts-in-css.html" target="_blank" rel="noopener">这篇</a>,只需大概了解即可。</p>
+<p>懒得打开链接的，只需明白要形成一个BFC盒子布局至少满足下列条件中的任意一个：</p>
+<ul>
+<li>float的值不为none</li>
+<li>position的值不为static或者relative</li>
+<li>display的值为table-cell,table-caption,inline-block,flex或者inline-flex中的一个</li>
+<li>overflow的值不为visible</li>
+</ul>
+<p>推荐看张鑫旭这篇<a href="http://www.zhangxinxu.com/wordpress/2015/02/css-deep-understand-flow-bfc-column-two-auto-layout/" target="_blank" rel="noopener">文章</a>，博主的很多文章都写的很好，个人之见。</p>
+<p>文章介绍了形成自适应布局的多种方式，给出了一个适合于绝大多少场景的解决方案。如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">	&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">		.fl &#123;</span><br><span class="line">			float:left;</span><br><span class="line">		&#125;</span><br><span class="line">		.cell &#123;</span><br><span class="line">			display: table-cell;</span><br><span class="line">			width: 9999px;</span><br><span class="line">			*display: inline-block;</span><br><span class="line">			*width: auto;</span><br><span class="line">		&#125;</span><br><span class="line">		.clearfix &#123;</span><br><span class="line">			*zoom:1;</span><br><span class="line">		&#125;</span><br><span class="line">		.clearfix:after &#123;</span><br><span class="line">			content:&apos;&apos;;</span><br><span class="line">			display: table;</span><br><span class="line">			clear:both;</span><br><span class="line">		&#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!--兼容IE6以上--&gt;</span><br><span class="line">	&lt;div class=&quot;clearfix&quot;&gt;</span><br><span class="line">		&lt;div class=&apos;fl&apos; style=&quot;width: 300px;background: red;height: 300px;&quot;&gt;&lt;/div&gt;</span><br><span class="line">		&lt;div class=&apos;cell&apos; style=&quot;background: yellow;height: 200px;&quot;&gt;&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">    &lt;!--使用flex属性，只能兼容到IE10--&gt;</span><br><span class="line">	&lt;div style=&quot;display: flex;&quot;&gt;</span><br><span class="line">		&lt;div style=&quot;background: purple;width: 300px;height: 300px; flex: none&quot;&gt;&lt;/div&gt;</span><br><span class="line">		&lt;div style=&quot;flex: 1;background: pink&quot;&gt;&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>IE6上页面效果图：</p>
+<p><img src="/imgs/flexlayout_ie5.png" alt="ie5效果图"><br>注意理解<code>.cell</code>类写法，使用一种CSS Hack写法。</p>
+<h3 id="高度占满剩余空间"><a href="#高度占满剩余空间" class="headerlink" title="高度占满剩余空间"></a>高度占满剩余空间</h3><p>有时会碰到这样的需要，在一个未知高度的div中已有一个已知高度的div,需要另一个div撑满剩下的高度，使用css如何解决？</p>
+<p>智者不语，如果你已知道请跳过，一个解决办法，第二个div设置足够高，然后让父元素溢出隐藏，另外一个办法，给第二个div加上如下样式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">selector &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    width: 100%;</span><br><span class="line">    top: height of the first div;</span><br><span class="line">    bottom: 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>css的其他技巧后续会一直更新…</p>
 
       
     </div>
@@ -368,6 +384,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+            <a href="/tags/web前端/" rel="tag"># web前端</a>
+          
+        </div>
+      
 
       
       
@@ -377,15 +401,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/01/17/study02/" rel="next" title="webpack基本配置">
+                <i class="fa fa-chevron-left"></i> webpack基本配置
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/06/diary-01/" rel="prev" title="随便">
-                随便 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -462,7 +486,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -484,7 +508,7 @@
                 
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -517,7 +541,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#css中的一些奇淫技巧"><span class="nav-number">1.</span> <span class="nav-text">css中的一些奇淫技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正方形div"><span class="nav-number">1.0.1.</span> <span class="nav-text">正方形div</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、vw单位使用"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">1、vw单位使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、padding-bottom巧妙使用"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">2、padding-bottom巧妙使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宽度占满剩余空间"><span class="nav-number">1.0.2.</span> <span class="nav-text">宽度占满剩余空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高度占满剩余空间"><span class="nav-number">1.0.3.</span> <span class="nav-text">高度占满剩余空间</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
