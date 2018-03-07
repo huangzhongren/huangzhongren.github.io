@@ -77,14 +77,14 @@
 
 <meta name="description" content="做一个不会敲代码的程序员。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta property="og:title" content="分类">
+<meta property="og:url" content="http://yoursite.com/categories/index.html">
 <meta property="og:site_name" content="Baole blog">
 <meta property="og:description" content="做一个不会敲代码的程序员。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-19T14:58:49.119Z">
+<meta property="og:updated_time" content="2017-12-19T14:58:49.118Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="标签">
+<meta name="twitter:title" content="分类">
 <meta name="twitter:description" content="做一个不会敲代码的程序员。">
 
 
@@ -117,7 +117,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/"/>
+  <link rel="canonical" href="http://yoursite.com/categories/"/>
 
 
 
@@ -253,6 +253,152 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/07/study-05/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bao Lei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Baole blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/07/study-05/" itemprop="url">关于日历</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-07T21:47:36+08:00">2018-03-07</time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/03/07/study-05/" class="leancloud_visitors" data-flag-title="关于日历">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>因为最近在写一款日历插件，所以不干别的，就普及一下日历相关知识。</p>
+<h4 id="闰年"><a href="#闰年" class="headerlink" title="闰年"></a>闰年</h4><p>“闰年”，我们通常所说的一年365天，其实是一个约数，准确的数字应是365.2422日。这样四年之后就比实际的一年少了近一天。为了弥补这个差值，历法（国际立法）中规定，4年设一闰，即能被4整除的年份为闰年，另外，凡遇世纪年（末尾为两个零的年份），必须能被400所整除才算闰年，其它的整百年不是闰年，即“百年不闰”。</p>
+<h4 id="农历"><a href="#农历" class="headerlink" title="农历"></a>农历</h4><p>中国的农历，实际应该就做汉历，属于阴阳历，以月球平均绕地球转一圈的时间为一月，但通过设置闰月，使平均的天数又与地球平均绕太阳转一圈的时间相等。</p>
+<h4 id="闰月"><a href="#闰月" class="headerlink" title="闰月"></a>闰月</h4><p>“闰月”，阴阳历中的一种现象，阴阳历是按照月亮的圆缺即朔望月安排大月和小月，一个朔望月的长度是29.5306日，是月相盈亏的周期，阴阳历规定，大月30天，小月29天，这样一年12个月共354天，阴阳历的月份没有季节的意义，这样十二个朔望月构成汉历年，长度为29.5306X12=354.3672日，比回归年365.2422日少了10.88天（将近11天），如果改十三个朔望月构成农历年，长度为29.5306X13=383.8978日，比回归年又多出18天多。为了克服这一缺点，我们的祖先发挥智慧找出来“闰月”的办法。</p>
+<h4 id="闰月的计算方法"><a href="#闰月的计算方法" class="headerlink" title="闰月的计算方法"></a>闰月的计算方法</h4><p>上面说农历以朔望月29.5306日为基础，所以大月为30日，小月为29日。为保证每月的头一天必须是朔日，就使的大小月安排不固定，而需要通过严格的观测和计算来确定。<br>那么多长时间加一个闰月呢？最好的办法就是求出回归年日数与朔望月的日数的最小公倍数，有下面的等式：<br>$$ M x 365.2422 = n x 29.5306 $$<br>通过上面等式，我们可以求出：<br>$$ M/N = 29.5306/364.2422 $$,其近似值为：3/37，5/62，8/99，11/136，14/173，19/235，27/334；</p>
+<p>在上面这些值中，分子表示回归年的数目，分母表示朔望月的数目。例如第六个分式19/235 = 19/(19x12+7)表示19个回归年中必须加7个闰月。</p>
+<p>所以，农历就采用了19年加7个闰月的办法，即“十九年七闰的方法”，把回归年与农历很好地协调起来，使农历的元旦总保持在冬末春初。古人把235个朔望月称之为“闰周”。</p>
+<h6 id="刨根问底，那么一年中哪个月为闰月又是如何决定的？这里需要说到二十四个节气。"><a href="#刨根问底，那么一年中哪个月为闰月又是如何决定的？这里需要说到二十四个节气。" class="headerlink" title="刨根问底，那么一年中哪个月为闰月又是如何决定的？这里需要说到二十四个节气。"></a>刨根问底，那么一年中哪个月为闰月又是如何决定的？这里需要说到二十四个节气。</h6><p>我国农历将二十四个节气分为十二个节气和十二个中气，月初叫节气，月中后叫中气。</p>
+<p>二十四节气歌</p>
+<blockquote>
+<p>春雨惊春青谷天，夏满芒夏署相连，</p>
+<p>秋处露秋寒霜降，冬雪雪冬小大寒。</p>
+</blockquote>
+<p>24节气中的双数节气，也就是雨水、春分、谷雨、小满、夏至、大暑、处暑、秋分、霜降、小雪、冬至、大寒也被称为中气。</p>
+<p>现在置闰方法是两个冬至之间，如仅有12个月则不置闰，若有13个月即置闰。置闰的月从“冬至”开始，当出现第一个没有“中气”的月份，这个月就是闰月。</p>
+<h6 id="刨根问祖坟，二十四节气又是如何制定，并有什么样的规律？"><a href="#刨根问祖坟，二十四节气又是如何制定，并有什么样的规律？" class="headerlink" title="刨根问祖坟，二十四节气又是如何制定，并有什么样的规律？"></a>刨根问祖坟，二十四节气又是如何制定，并有什么样的规律？</h6><p>二十四节气的制定，是从春分算起，太阳沿着黄道（地球绕太阳公转的轨道）出发，每运行15deg定为一个节气，运行一周又回到春分点，为一回归年。二十四节气反应了太阳的周年运动，所以节气在现行的公历中日期基本固定。如此一来，根据二十四节气置闰的过程即可打通。</p>
+<h4 id="思考："><a href="#思考：" class="headerlink" title="思考："></a>思考：</h4><h6 id="刨根问上帝，对于程序员，最讨厌的就是不确定性，农历的大小月如何确定？为什么置闰要从“冬至”开始？"><a href="#刨根问上帝，对于程序员，最讨厌的就是不确定性，农历的大小月如何确定？为什么置闰要从“冬至”开始？" class="headerlink" title="刨根问上帝，对于程序员，最讨厌的就是不确定性，农历的大小月如何确定？为什么置闰要从“冬至”开始？"></a>刨根问上帝，对于程序员，最讨厌的就是不确定性，农历的大小月如何确定？为什么置闰要从“冬至”开始？</h6>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1011,7 +1157,7 @@ Browser.js   --&gt; JSX语法转JS
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
