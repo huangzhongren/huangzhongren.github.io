@@ -307,6 +307,366 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.idealismzone.com/2018/04/29/diary-08/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bao Lei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/imgs/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Baole blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/29/diary-08/" itemprop="url">页面加载优化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-29T23:33:53+08:00">2018-04-29</time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端优化/" itemprop="url" rel="index">
+                    <span itemprop="name">前端优化</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/04/29/diary-08/" class="leancloud_visitors" data-flag-title="页面加载优化">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>关于需要延迟执行的脚本，<strong>我们最常用的方法是把脚本放在body结束标签之前</strong>。事实上这也是普适性最好最为优的解决办法，原因不做赘述了。但是，有一些应用场景无法将脚本放在底部，比如模块化的前端项目，每一个模块都有单独的js和css，最后组合成完整的html，基于此做到延迟执行，是不是也可以提供相应的解决方案？</p>
+<p>这就需要用到defer和async，这里介绍浏览器对defer和async脚本不同的处理方式。</p>
+<p>一图胜千言，先看图：<br><img src="../imgs/defer_async.jpg" alt="script加载过程"><br>绿线表示html解析过程，蓝线表示脚本网络读取时间，即加载过程，红线表示脚本执行过程。</p>
+<h3 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h3><blockquote>
+<ul>
+<li>普通脚本执行同步，会打断浏览器解析html的过程。</li>
+<li>defer会异步去加载脚本,加载完成之后等待html解析完成然后执行。</li>
+<li>async同样会异步加载脚本,但一旦加载完成就会打断html的解析，开始执行。</li>
+</ul>
+</blockquote>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><h4 id="defer-html4"><a href="#defer-html4" class="headerlink" title="defer(html4)"></a>defer(html4)</h4><p>参照上图，有defer，加载后续文档元素的过程将与脚本加载并行，但脚本内的内容将延迟到所有元素解析完成之后，DOMContentLoaded<sup>1</sup>事件触发之前完成。那我们来做做测试:<br>我们先试试inline写法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">	&lt;script defer&gt;</span><br><span class="line">		console.log(document.getElementById(&apos;box&apos;))</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div id=&quot;container&quot;&gt;ssss&lt;/div&gt;</span><br><span class="line">	&lt;div id=&quot;box&quot;&gt;fagrgra&lt;/div&gt;</span><br><span class="line">	&lt;script&gt;</span><br><span class="line">		console.log(document.getElementById(&apos;container&apos;).innerText)</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>输出结果：<br><img src="../imgs/defer_test.png" alt="defer inline test"><br>这个结果好像并不是我们所期望的，如果说defer脚本滞后执行的话，应该实在正常脚本之后，好像defer没有起作用。</p>
+<p>不甘心的我，重新用ie打开，ie11、ie9表现一样,当我选择ie8时奇迹发生了：<br><img src="../imgs/defer_test_ie9.png" alt="defer inline test"></p>
+<p>显然对于内联脚本，只有ie9以下支持延迟执行，后来我改用外联方式引入defer脚本，发现新版浏览都支持的很好，输出结果与上图一致。</p>
+<p>defer是对脚本的延迟<strong>执行</strong>，而相信大部分js‘玩家’都了解脚本延迟<strong>执行</strong>另外的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">window.onload = function()&#123;</span><br><span class="line">    //编写执行代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>说明：</p>
+<blockquote>
+<p><strong>上面的写法，代码的执行将在defer脚本之后。</strong></p>
+<p><strong>由上面的测试确实是验证了defer脚本在所有元素解析完成之后执行，前提是在引入外联脚本的时候，内联时只有ie9以下支持。defer脚本执行是dom也准备完成，所以可以在脚本中操作dom元素</strong><br><strong>defer是完全按照加载顺序执行，哪怕是加载时间不一致也不会影响脚本之间的执行顺序。</strong><br><strong>脚本内不支持document.write方法</strong></p>
+</blockquote>
+<h4 id="async-html5"><a href="#async-html5" class="headerlink" title="async(html5)"></a>async(html5)</h4><p>使用async，脚本会异步加载，加载完成后打断html解析，执行脚本。<br>用法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;demo_async.js&quot; async=&quot;async&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>用async有以下注意几点：</p>
+<ul>
+<li>async属性仅适用于引用外部脚本</li>
+<li>async属性不会去考虑脚本之间的依赖，只要加载完就会执行，不管你声明的顺序如何。所以通常的使用场景仅限于脚本不依赖或不被任何脚本依赖的情形。</li>
+</ul>
+<h4 id="无阻塞加载脚本的另外方式"><a href="#无阻塞加载脚本的另外方式" class="headerlink" title="无阻塞加载脚本的另外方式"></a>无阻塞加载脚本的另外方式</h4><p>我们同样可以通过执行异步函数的方法加载脚本。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function loadScript(url,callback)&#123;</span><br><span class="line">	var script = document.createElement(&apos;script&apos;);</span><br><span class="line">	script.type=&apos;text/javascript&apos;;</span><br><span class="line">	if(script.readyState)&#123;//IE</span><br><span class="line">		script.onreadystatechange = function()&#123;//trigger when this state change</span><br><span class="line">			if(script.readyState===&apos;loaded&apos;||script.readyState===&apos;complete&apos;)&#123;</span><br><span class="line">				script.onreadystatechange = null;</span><br><span class="line">				callback()</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;else &#123;</span><br><span class="line">		script.onload = function ()&#123;</span><br><span class="line">			callback()</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	script.src = url;</span><br><span class="line">	document.getElementsByTagName(&apos;head&apos;)[0].appendChild(script);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面这个方法也可以解决脚本之间依赖的关系<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">loadScript(url1,function()&#123;</span><br><span class="line">	loadScript(url2,function()&#123;</span><br><span class="line">		console.log(&quot;all scripts were loaded&quot;)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注：</p>
+<ul>
+<li>DOMContentLoaded事件触发时，仅当DOM加载完成，不包括样式表，图片，flash。</li>
+<li>onload事件触发时，页面所有的DOM,样式表，脚本，图片，flash都已加载完成。</li>
+<li>defer和async同时存在，会忽略defer而遵从async</li>
+</ul>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.idealismzone.com/2018/04/12/diray-07/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bao Lei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/imgs/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Baole blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/12/diray-07/" itemprop="url">代码整理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T18:47:40+08:00">2018-04-12</time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jquery插件/" itemprop="url" rel="index">
+                    <span itemprop="name">jquery插件</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/04/12/diray-07/" class="leancloud_visitors" data-flag-title="代码整理">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>&lt;p&gt;本文主要是分享一些自己写的插件，出于想整理自身代码的原因，同时避免闭门造车的尴尬，希望懂的人可以提出看法和意见！&lt;/p&gt;
+</code></pre><h4 id="基于bootstrap的可扩展表单验证插件"><a href="#基于bootstrap的可扩展表单验证插件" class="headerlink" title="基于bootstrap的可扩展表单验证插件"></a>基于bootstrap的可扩展表单验证插件</h4><pre><code>**声明：此插件参照于网络，非原创**
+
+网络上很多优秀的validation插件，大家都可以自由选择。我写这个插件的原因很简单，只是为了单纯实现某一方面的需求，在很多情况下使用别人的插件，往往显得复杂并厚重，有时还要很长的学习时间，于是果断自己写一个，并不是因为展示自己牛逼，只是因为自己实现更为简单，放心。
+
+这里看一下[source code](https://github.com/noconfuse/bootstrap-validation)，里面有使用方法，实现思路自己去探索好了。
+
+demo在[这里](www.idealismzone.com/demo/bootstrap_validation)
+</code></pre><h4 id="基于bootstrap的自定义模态框"><a href="#基于bootstrap的自定义模态框" class="headerlink" title="基于bootstrap的自定义模态框"></a>基于bootstrap的自定义模态框</h4><pre><code>这个插件自我感觉不是好插件，实现方式跟上面类似，最近coding很多都是同样的套路，应该陷入惯性思维了。
+
+仓库地址[bootstrap_modal](https://github.com/noconfuse/bootstrap_modal)
+[demo](https://idealismzone.com/demo/bootstrap_modal)
+</code></pre><h4 id="基于canvas图片裁剪"><a href="#基于canvas图片裁剪" class="headerlink" title="基于canvas图片裁剪"></a>基于canvas图片裁剪</h4><pre><code>其实这不算一个插件，管他呢，因为是第一个基于canvas实现的一个小功能，代码也具有可复用性。还有很多待完成的内容。
+
+如果有做多功能的图片裁剪功能的，经使用，个人推荐[JCrop](http://code.ciaoca.com/jquery/jcrop)这款插件。
+
+有兴趣可以了解一下，源代码为未压缩版，[仓库地址](https://github.com/noconfuse/canvas-crop)。
+</code></pre><h4 id="基于jquery-deffered实现的瀑布流异步加载"><a href="#基于jquery-deffered实现的瀑布流异步加载" class="headerlink" title="基于jquery.deffered实现的瀑布流异步加载"></a>基于jquery.deffered实现的瀑布流异步加载</h4><pre><code>后续更新...
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.idealismzone.com/2018/04/01/diary-06/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1363,7 +1723,7 @@ Browser.js   --&gt; JSX语法转JS
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1374,7 +1734,7 @@ Browser.js   --&gt; JSX语法转JS
                 
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1385,7 +1745,7 @@ Browser.js   --&gt; JSX语法转JS
                 
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
