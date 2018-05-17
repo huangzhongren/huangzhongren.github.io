@@ -77,14 +77,14 @@
 
 <meta name="description" content="做一个不会敲代码的程序员。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http://blog.idealismzone.com/tags/index.html">
+<meta property="og:title" content="分类">
+<meta property="og:url" content="http://blog.idealismzone.com/categories/index.html">
 <meta property="og:site_name" content="Baole blog">
 <meta property="og:description" content="做一个不会敲代码的程序员。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-19T14:58:49.119Z">
+<meta property="og:updated_time" content="2017-12-19T14:58:49.118Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="标签">
+<meta name="twitter:title" content="分类">
 <meta name="twitter:description" content="做一个不会敲代码的程序员。">
 
 
@@ -117,7 +117,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.idealismzone.com/tags/"/>
+  <link rel="canonical" href="http://blog.idealismzone.com/categories/"/>
 
 
 
@@ -414,6 +414,7 @@
 <li>async同样会异步加载脚本,但一旦加载完成就会打断html的解析，开始执行。</li>
 </ul>
 </blockquote>
+<a id="more"></a>
 <h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><h4 id="defer-html4"><a href="#defer-html4" class="headerlink" title="defer(html4)"></a>defer(html4)</h4><p>参照上图，有defer，加载后续文档元素的过程将与脚本加载并行，但脚本内的内容将延迟到所有元素解析完成之后，DOMContentLoaded<sup>1</sup>事件触发之前完成。那我们来做做测试:<br>我们先试试inline写法:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">	&lt;script defer&gt;</span><br><span class="line">		console.log(document.getElementById(&apos;box&apos;))</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div id=&quot;container&quot;&gt;ssss&lt;/div&gt;</span><br><span class="line">	&lt;div id=&quot;box&quot;&gt;fagrgra&lt;/div&gt;</span><br><span class="line">	&lt;script&gt;</span><br><span class="line">		console.log(document.getElementById(&apos;container&apos;).innerText)</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 <p>输出结果：<br><img src="../imgs/defer_test.png" alt="defer inline test"><br>这个结果好像并不是我们所期望的，如果说defer脚本滞后执行的话，应该实在正常脚本之后，好像defer没有起作用。</p>
@@ -485,6 +486,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/17/study-09/" rel="prev" title="html中的svg使用">
+                html中的svg使用 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -597,7 +602,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -619,7 +624,7 @@
                 
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

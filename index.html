@@ -77,14 +77,14 @@
 
 <meta name="description" content="做一个不会敲代码的程序员。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http://blog.idealismzone.com/tags/index.html">
+<meta property="og:title" content="分类">
+<meta property="og:url" content="http://blog.idealismzone.com/categories/index.html">
 <meta property="og:site_name" content="Baole blog">
 <meta property="og:description" content="做一个不会敲代码的程序员。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-19T14:58:49.119Z">
+<meta property="og:updated_time" content="2017-12-19T14:58:49.118Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="标签">
+<meta name="twitter:title" content="分类">
 <meta name="twitter:description" content="做一个不会敲代码的程序员。">
 
 
@@ -117,7 +117,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.idealismzone.com/tags/"/>
+  <link rel="canonical" href="http://blog.idealismzone.com/categories/"/>
 
 
 
@@ -307,6 +307,149 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.idealismzone.com/2018/05/17/study-09/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bao Lei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/imgs/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Baole blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/17/study-09/" itemprop="url">html中的svg使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-17T21:25:51+08:00">2018-05-17</time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/05/17/study-09/" class="leancloud_visitors" data-flag-title="html中的svg使用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>通常我们使用<embed>、<objext>或者<iframe>嵌入网页之中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;embed src=&quot;circle.svg&quot; type=&quot;image/svg+xml&quot;/&gt;</span><br></pre></td></tr></table></figure></iframe></objext></p>
+<p>关于svg中属性和标签可以网上查看相关文档，大概了解一番。</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>参考csdn的logo的用法，我们可以使用<symbol>和<use></use>标签搭配使用来建立的公共的svg图形。<br>    具体用法：</symbol></p>
+<pre><code>+ 以下面这种方式在文档的顶部创建一个包裹在symbol元素中的隐藏svg，标识id。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg style=&quot;display:none&quot;&gt;</span><br><span class="line">	&lt;symbol viewBox=&quot;0 0 24 24&quot; id=&quot;mySvg&quot;&gt;</span><br><span class="line">	&lt;path fill=&quot;#E86C60&quot; d=&quot;M17,0c-1.9,0-3.7,0.8-5,2.1C10.7,0.8,8.9,0,7,0C3.1,0,0,3.1,0,7c0,6.4,10.9,15.4,11.4,15.8 c0.2,0.2,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2C13.1,22.4,24,13.4,24,7C24,3.1,20.9,0,17,0z&quot;&gt;&lt;/path&gt; </span><br><span class="line">	&lt;/symbol&gt;</span><br><span class="line">	&lt;symbol viewBox=&quot;0 0 24 24&quot; id=&quot;mySvg1&quot;&gt;</span><br><span class="line">	&lt;path fill=&quot;#E86C60&quot; d=&quot;M17,0c-1.9,0-3.7,0.8-5,2.1C10.7,0.8,8.9,0,7,0C3.1,0,0,3.1,0,7c0,6.4,10.9,15.4,11.4,15.8 c0.2,0.2,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2C13.1,22.4,24,13.4,24,7C24,3.1,20.9,0,17,0z&quot;&gt;&lt;/path&gt; </span><br><span class="line">	&lt;/symbol&gt;</span><br><span class="line">&lt;/svg&gt;</span><br></pre></td></tr></table></figure>
+
+ +在需要显示svg图的位置使用use元素引用，相当于将symbol实例化，而且可以在定义完symbol后的无限次使用，只需用xlink:href属性制定你想要展示哪一组图标。
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   &lt;svg&gt;</span><br><span class="line">&lt;use xlink:href=&quot;#mySvg&quot;&gt;</span><br><span class="line">   &lt;/svg&gt;</span><br></pre></td></tr></table></figure>
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/17/study-09/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.idealismzone.com/2018/04/29/diary-08/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -408,8 +551,7 @@
 
       
         
-          
-            <p>关于需要延迟执行的脚本，<strong>我们最常用的方法是把脚本放在body结束标签之前</strong>。事实上这也是普适性最好最为优的解决办法，原因不做赘述了。但是，有一些应用场景无法将脚本放在底部，比如模块化的前端项目，每一个模块都有单独的js和css，最后组合成完整的html，基于此做到延迟执行，是不是也可以提供相应的解决方案？</p>
+          <p>关于需要延迟执行的脚本，<strong>我们最常用的方法是把脚本放在body结束标签之前</strong>。事实上这也是普适性最好最为优的解决办法，原因不做赘述了。但是，有一些应用场景无法将脚本放在底部，比如模块化的前端项目，每一个模块都有单独的js和css，最后组合成完整的html，基于此做到延迟执行，是不是也可以提供相应的解决方案？</p>
 <p>这就需要用到defer和async，这里介绍浏览器对defer和async脚本不同的处理方式。</p>
 <p>一图胜千言，先看图：<br><img src="../imgs/defer_async.jpg" alt="script加载过程"><br>绿线表示html解析过程，蓝线表示脚本网络读取时间，即加载过程，红线表示脚本执行过程。</p>
 <h3 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h3><blockquote>
@@ -419,36 +561,13 @@
 <li>async同样会异步加载脚本,但一旦加载完成就会打断html的解析，开始执行。</li>
 </ul>
 </blockquote>
-<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><h4 id="defer-html4"><a href="#defer-html4" class="headerlink" title="defer(html4)"></a>defer(html4)</h4><p>参照上图，有defer，加载后续文档元素的过程将与脚本加载并行，但脚本内的内容将延迟到所有元素解析完成之后，DOMContentLoaded<sup>1</sup>事件触发之前完成。那我们来做做测试:<br>我们先试试inline写法:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">	&lt;script defer&gt;</span><br><span class="line">		console.log(document.getElementById(&apos;box&apos;))</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div id=&quot;container&quot;&gt;ssss&lt;/div&gt;</span><br><span class="line">	&lt;div id=&quot;box&quot;&gt;fagrgra&lt;/div&gt;</span><br><span class="line">	&lt;script&gt;</span><br><span class="line">		console.log(document.getElementById(&apos;container&apos;).innerText)</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>输出结果：<br><img src="../imgs/defer_test.png" alt="defer inline test"><br>这个结果好像并不是我们所期望的，如果说defer脚本滞后执行的话，应该实在正常脚本之后，好像defer没有起作用。</p>
-<p>不甘心的我，重新用ie打开，ie11、ie9表现一样,当我选择ie8时奇迹发生了：<br><img src="../imgs/defer_test_ie9.png" alt="defer inline test"></p>
-<p>显然对于内联脚本，只有ie9以下支持延迟执行，后来我改用外联方式引入defer脚本，发现新版浏览都支持的很好，输出结果与上图一致。</p>
-<p>defer是对脚本的延迟<strong>执行</strong>，而相信大部分js‘玩家’都了解脚本延迟<strong>执行</strong>另外的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">window.onload = function()&#123;</span><br><span class="line">    //编写执行代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>说明：</p>
-<blockquote>
-<p><strong>上面的写法，代码的执行将在defer脚本之后。</strong></p>
-<p><strong>由上面的测试确实是验证了defer脚本在所有元素解析完成之后执行，前提是在引入外联脚本的时候，内联时只有ie9以下支持。defer脚本执行是dom也准备完成，所以可以在脚本中操作dom元素</strong><br><strong>defer是完全按照加载顺序执行，哪怕是加载时间不一致也不会影响脚本之间的执行顺序。</strong><br><strong>脚本内不支持document.write方法</strong></p>
-</blockquote>
-<h4 id="async-html5"><a href="#async-html5" class="headerlink" title="async(html5)"></a>async(html5)</h4><p>使用async，脚本会异步加载，加载完成后打断html解析，执行脚本。<br>用法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;demo_async.js&quot; async=&quot;async&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>用async有以下注意几点：</p>
-<ul>
-<li>async属性仅适用于引用外部脚本</li>
-<li>async属性不会去考虑脚本之间的依赖，只要加载完就会执行，不管你声明的顺序如何。所以通常的使用场景仅限于脚本不依赖或不被任何脚本依赖的情形。</li>
-</ul>
-<h4 id="无阻塞加载脚本的另外方式"><a href="#无阻塞加载脚本的另外方式" class="headerlink" title="无阻塞加载脚本的另外方式"></a>无阻塞加载脚本的另外方式</h4><p>我们同样可以通过执行异步函数的方法加载脚本。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function loadScript(url,callback)&#123;</span><br><span class="line">	var script = document.createElement(&apos;script&apos;);</span><br><span class="line">	script.type=&apos;text/javascript&apos;;</span><br><span class="line">	if(script.readyState)&#123;//IE</span><br><span class="line">		script.onreadystatechange = function()&#123;//trigger when this state change</span><br><span class="line">			if(script.readyState===&apos;loaded&apos;||script.readyState===&apos;complete&apos;)&#123;</span><br><span class="line">				script.onreadystatechange = null;</span><br><span class="line">				callback()</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;else &#123;</span><br><span class="line">		script.onload = function ()&#123;</span><br><span class="line">			callback()</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	script.src = url;</span><br><span class="line">	document.getElementsByTagName(&apos;head&apos;)[0].appendChild(script);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面这个方法也可以解决脚本之间依赖的关系<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">loadScript(url1,function()&#123;</span><br><span class="line">	loadScript(url2,function()&#123;</span><br><span class="line">		console.log(&quot;all scripts were loaded&quot;)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>注：</p>
-<ul>
-<li>DOMContentLoaded事件触发时，仅当DOM加载完成，不包括样式表，图片，flash。</li>
-<li>onload事件触发时，页面所有的DOM,样式表，脚本，图片，flash都已加载完成。</li>
-<li>defer和async同时存在，会忽略defer而遵从async</li>
-</ul>
-</blockquote>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/29/diary-08/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1723,7 +1842,7 @@ Browser.js   --&gt; JSX语法转JS
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1745,7 +1864,7 @@ Browser.js   --&gt; JSX语法转JS
                 
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
