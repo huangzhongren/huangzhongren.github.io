@@ -77,14 +77,14 @@
 
 <meta name="description" content="做一个不会敲代码的程序员。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://blog.idealismzone.com/categories/index.html">
+<meta property="og:title" content="标签">
+<meta property="og:url" content="http://blog.idealismzone.com/tags/index.html">
 <meta property="og:site_name" content="Baole blog">
 <meta property="og:description" content="做一个不会敲代码的程序员。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-19T14:58:49.118Z">
+<meta property="og:updated_time" content="2017-12-19T14:58:49.119Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
+<meta name="twitter:title" content="标签">
 <meta name="twitter:description" content="做一个不会敲代码的程序员。">
 
 
@@ -117,7 +117,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.idealismzone.com/categories/"/>
+  <link rel="canonical" href="http://blog.idealismzone.com/tags/"/>
 
 
 
@@ -386,15 +386,18 @@
 
       
         
-          <p>通常我们使用<embed>、<objext>或者<iframe>嵌入网页之中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;embed src=&quot;circle.svg&quot; type=&quot;image/svg+xml&quot;/&gt;</span><br></pre></td></tr></table></figure></iframe></objext></p>
+          <p>通常我们使用<code>&lt;embed&gt;</code>、<code>&lt;object&gt;</code>或者<code>&lt;iframe&gt;</code>嵌入网页之中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;embed src=&quot;circle.svg&quot; type=&quot;image/svg+xml&quot;/&gt;</span><br></pre></td></tr></table></figure>
 <p>关于svg中属性和标签可以网上查看相关文档，大概了解一番。</p>
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>参考csdn的logo的用法，我们可以使用<symbol>和<use></use>标签搭配使用来建立的公共的svg图形。<br>    具体用法：</symbol></p>
-<pre><code>+ 以下面这种方式在文档的顶部创建一个包裹在symbol元素中的隐藏svg，标识id。
+<ul>
+<li><p>以下面这种方式在文档的顶部创建一个包裹在symbol元素中的隐藏svg，标识id。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg style=&quot;display:none&quot;&gt;</span><br><span class="line">	&lt;symbol viewBox=&quot;0 0 24 24&quot; id=&quot;mySvg&quot;&gt;</span><br><span class="line">	&lt;path fill=&quot;#E86C60&quot; d=&quot;M17,0c-1.9,0-3.7,0.8-5,2.1C10.7,0.8,8.9,0,7,0C3.1,0,0,3.1,0,7c0,6.4,10.9,15.4,11.4,15.8 c0.2,0.2,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2C13.1,22.4,24,13.4,24,7C24,3.1,20.9,0,17,0z&quot;&gt;&lt;/path&gt; </span><br><span class="line">	&lt;/symbol&gt;</span><br><span class="line">	&lt;symbol viewBox=&quot;0 0 24 24&quot; id=&quot;mySvg1&quot;&gt;</span><br><span class="line">	&lt;path fill=&quot;#E86C60&quot; d=&quot;M17,0c-1.9,0-3.7,0.8-5,2.1C10.7,0.8,8.9,0,7,0C3.1,0,0,3.1,0,7c0,6.4,10.9,15.4,11.4,15.8 c0.2,0.2,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2C13.1,22.4,24,13.4,24,7C24,3.1,20.9,0,17,0z&quot;&gt;&lt;/path&gt; </span><br><span class="line">	&lt;/symbol&gt;</span><br><span class="line">&lt;/svg&gt;</span><br></pre></td></tr></table></figure>
-
- +在需要显示svg图的位置使用use元素引用，相当于将symbol实例化，而且可以在定义完symbol后的无限次使用，只需用xlink:href属性制定你想要展示哪一组图标。
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   &lt;svg&gt;</span><br><span class="line">&lt;use xlink:href=&quot;#mySvg&quot;&gt;</span><br><span class="line">   &lt;/svg&gt;</span><br></pre></td></tr></table></figure>
-</code></pre>
+</li>
+<li><p>在需要显示svg图的位置使用use元素引用，相当于将symbol实例化，而且可以在定义完symbol后的无限次使用，只需用xlink:href属性制定你想要展示哪一组图标。</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   &lt;svg&gt;</span><br><span class="line">&lt;use xlink:href=&quot;#mySvg&quot;&gt;</span><br><span class="line">   &lt;/svg&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/05/17/study-09/#more" rel="contents">
